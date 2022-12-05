@@ -1,5 +1,6 @@
 name: scrape
 on:
+  push:
   workflow_dispatch:
 jobs:
   scrape:
@@ -21,6 +22,8 @@ jobs:
         run: sudo apt install -y chromium-browser=1:85.0.4183.83-0ubuntu2
       - name: Check chromium version
         run: /usr/bin/chromium --version
+      - name: Package info
+        run: dpkg -L chromium
       - name: Find all installed chromimums
         run: find / -name "chromium"
       - name: Install all necessary packages
