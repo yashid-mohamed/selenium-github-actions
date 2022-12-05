@@ -21,11 +21,9 @@ jobs:
       - name: Install a new Chromium
         run: sudo apt install -y chromium-browser=1:85.0.4183.83-0ubuntu2
       - name: Check chromium version
-        run: /usr/bin/chromium --version
-      - name: Package info
-        run: dpkg -L chromium
-      - name: Find all installed chromimums
-        run: find / -name "chromium"
+        run: |
+            /usr/bin/chromium --version
+            /usr/local/share/chromium --version
       - name: Install all necessary packages
         run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
       - name: Run the scraping script
