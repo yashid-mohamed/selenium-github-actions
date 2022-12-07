@@ -22,12 +22,17 @@ jobs:
       - name: Remove Chrome
         run: sudo apt purge google-chrome-stable
       - name: Remove default Chromium
-        run: sudo apt purge chromium-browser
+        run: sudo apt purge chromium-browser chromium
     #  - name: Install a new Chromium
     #    run: sudo apt install -y chromium-browser=1:85.0.4183.83-0ubuntu2
       - name: Set up chromedriver
         run: |
             sudo snap install chromium
+      - name: Check snap chromium version
+        run: |
+            if [ -f /snap/bin/chromium ]; then
+              /snap/bin/chromium --version
+            fi
       - name: Check chromium version
         run: |
             /usr/bin/chromium --version
