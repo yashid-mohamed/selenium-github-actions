@@ -12,17 +12,18 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+
+    #  - name: Installed package list
+    #    run: apt list --installed
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
       - name: Check chromium version
         run: |
             if [ -f /usr/bin/chromium ]; then
               /usr/bin/chromium --version
             fi
-    #  - name: Installed package list
-    #    run: apt list --installed
-      - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable
       - name: Remove default Chromium
-        run: sudo apt-get --only-upgrade install chromium
+        run: sudo apt-get --only-upgrade install chromium-browser
     #  - name: Install a new Chromium
     #    run: sudo apt install -y chromium-browser=1:85.0.4183.83-0ubuntu2
    #   - name: Set up chromedriver
