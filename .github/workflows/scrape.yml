@@ -38,7 +38,7 @@ jobs:
         run: |
             /usr/bin/chromium --version
       - name: Install all necessary packages
-        run: pip install requests beautifulsoup4 pandas webdriver-manager selenium
+        run: pip install requests beautifulsoup4 pandas webdriver-manager selenium chromedriver-autoinstaller
       - name: Run the scraping script
         run: python scraper.py
 
