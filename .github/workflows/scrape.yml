@@ -14,7 +14,7 @@ jobs:
           python-version: '3.9'
       - name: Check chromium version
         run: |
-            if [-f /usr/bin/chromium]; then
+            if [ -f /usr/bin/chromium ]; then
               /usr/bin/chromium --version
             fi
     #  - name: Installed package list
@@ -27,9 +27,7 @@ jobs:
     #    run: sudo apt install -y chromium-browser=1:85.0.4183.83-0ubuntu2
       - name: Set up chromedriver
         run: |
-            sudo apt-get update &&
-            wget "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb" -P /tmp &&
-            sudo apt-get install -y "/tmp/google-chrome-stable_current_amd64.deb" -f
+            sudo snap install chromium
       - name: Check chromium version
         run: |
             /usr/bin/chromium --version
